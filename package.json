@@ -1,0 +1,82 @@
+{
+  "name": "my-app",
+  "version": "1.5.0",
+  "author": "Thibaut Mouton",
+  "description": "Example of electron and react typescript with electron-builder auto-update",
+  "homepage": ".",
+  "main": "build/electron/main.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/your-gitlab-username/your-repository-name/"
+  },
+  "build": {
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "publish": {
+        "provider": "generic",
+        "url": "https://gitlab.com/api/v4/projects/Your-project-id/jobs/artifacts/your-branch-name/raw/dist?job=build"
+      }
+    },
+    "extends": null,
+    "files": [
+      "build/**/*",
+      "package.json"
+    ],
+    "productName": "Mercure",
+    "appId": "com.mercure.electron",
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "dependencies": {
+    "@types/jest": "26.0.20",
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.1",
+    "electron-is-dev": "^1.2.0",
+    "electron-reload": "^1.5.0",
+    "electron-updater": "^4.3.8",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.2",
+    "typescript": "4.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "electron:dev": "concurrently \"yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+    "electron:build": "yarn build && tsc -p electron && electron-builder --publish never",
+    "electron:custom": "tsc -p electron && electron-builder --win --publish never",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "electron": "^11.2.3",
+    "electron-builder": "^22.9.1",
+    "wait-on": "^5.2.1"
+  }
+}

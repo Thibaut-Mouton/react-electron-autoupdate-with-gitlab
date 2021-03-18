@@ -1,0 +1,19 @@
+stages:
+  - build
+
+build:
+  image: electronuserland/builder:wine
+  stage: build
+  script:
+    # Install all dependencies
+    - yarn install
+    # Add typescript to dependencies
+    - yarn add tsc
+    # Build react app
+    - yarn run build
+    # Build and package electron app
+    - yarn run electron:build
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - dist/
