@@ -7,7 +7,7 @@
 
 This project shows how to deploy auto-update feature on electron project hosted on Gitlab. Electron's auto-updater module allow downloading new versions automatically. 
 
-## I. Generate Gitlab token
+## 1. Generate Gitlab token
 
 <div align="center">
 
@@ -16,7 +16,7 @@ This project shows how to deploy auto-update feature on electron project hosted 
 
 Create your own token with API scope.
 
-## 1. Change ```package.json``` and ```main.ts``` with your own settings 
+## 2. Change ```package.json``` and ```main.ts``` with your own settings 
 #####package.json :
 ```JSON
 "repository": {
@@ -37,12 +37,12 @@ Create your own token with API scope.
 autoUpdater.requestHeaders = {"PRIVATE-TOKEN": "your-gitlab-token"};
 ```
 
-## 2. Build app and launch it locally
+## 3. Build app and launch it locally
 
 Run ```yarn run electron:dev``` to build your app. Run ```mercure.exe``` with command line or by double-clicking it.
 You can see there is no new version available
 
-## 3. Change files and push to repository
+## 4. Change files and push to repository
 
 If you want to commit and publish a new version on your repository, don't forget to change the package.json version. Otherwise the auto-updater module won't be able to detect a new version
 
@@ -64,7 +64,7 @@ Job succeeded
 Once the pipeline is finished, a new version is available at https://gitlab.com/your-username/your-repo-name/-/jobs/job-ID/artifacts/file
 The ```latest.yml``` file is very important because it contains the version id.
 
-## 4. Run your app
+## 5. Run your app
 
 You should see this message : 
 
