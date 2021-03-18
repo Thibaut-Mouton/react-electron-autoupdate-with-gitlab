@@ -39,7 +39,7 @@ autoUpdater.requestHeaders = {"PRIVATE-TOKEN": "your-gitlab-token"};
 
 ## 3. Build app and launch it locally
 
-Run ```yarn run electron:dev``` to build your app. Run ```mercure.exe``` with command line or by double-clicking it.
+Run ```yarn run electron:build``` to build your app. Run ```mercure.exe``` with command line or by double-clicking it.
 You can see there is no new version available
 
 ## 4. Change files and push to repository
