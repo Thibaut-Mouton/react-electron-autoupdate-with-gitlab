@@ -17,7 +17,7 @@ This project shows how to deploy auto-update feature on electron project hosted 
 Create your own token with API scope.
 
 ## 2. Change ```package.json``` and ```main.ts``` with your own settings 
-#####package.json :
+##### package.json :
 ```JSON
 "repository": {
   "type": "git",
@@ -31,7 +31,7 @@ Create your own token with API scope.
 }
 ```
 
-#####electron/main.ts
+##### electron/main.ts
 ```Javascript
 // Auto update feature
 autoUpdater.requestHeaders = {"PRIVATE-TOKEN": "your-gitlab-token"};
@@ -46,7 +46,7 @@ You can see there is no new version available
 
 If you want to commit and publish a new version on your repository, don't forget to change the package.json version. Otherwise the auto-updater module won't be able to detect a new version
 
-#####package.json :
+##### package.json :
 ```
 "version": "1.5.0"
 ```
