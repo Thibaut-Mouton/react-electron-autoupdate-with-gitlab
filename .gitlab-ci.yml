@@ -12,7 +12,7 @@ build:
     # Build react app
     - yarn run build
     # Build and package electron app
-    - yarn run electron:build
+    - yarn run electron:custom
   artifacts:
     expire_in: 1 day
     paths:
